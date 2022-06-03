@@ -1,0 +1,6 @@
+[submodule "tinytuba"]
+	path = tinytuba
+	url = https://github.com/boxsux/tinytuba
+[submodule "flashisdead"]
+	path = flashisdead
+	url = https://github.com/boxsux/flashisdead

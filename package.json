@@ -1,0 +1,21 @@
+{
+    "name": "tiny-webs",
+    "version": "1.0.0",
+    "description": "small web projects managed through docker-compose and a reverse proxy",
+    "main": "index.js",
+    "scripts": {
+        "docker": "pnpm run docker:prune && pnpm run docker:start",
+        "docker:prune": "docker-compose down --remove-orphans",
+        "docker:start": "docker-compose up -d"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/boxsux/tiny-webs.git"
+    },
+    "author": "Box Supremacy",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/boxsux/tiny-webs/issues"
+    },
+    "homepage": "https://github.com/boxsux/tiny-webs#readme"
+}

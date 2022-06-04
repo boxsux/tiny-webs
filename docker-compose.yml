@@ -1,26 +1,12 @@
 version: '3.9'
-
 services:
-    # proxy:
-    #     image: nginx
-    #     volumes:
-    #         - ./nginx_configs/:/etc/nginx/conf.d/:ro
-    #         - ./proxy/:/usr/share/nginx/html/:ro
-    #     ports:
-    #         - '8080:80'
-    #     networks:
-    #         - internal
-    #     container_name: proxy
-    #     hostname: proxy
     proxy:
+        image: nginx
         build:
-            context: ./
-            dockerfile: ./Dockerfile
-        volumes:
-            - ./nginx_configs/:/etc/nginx/conf.d/:ro
-            - ./proxy/:/usr/share/nginx/html/:ro
+            context: .
+            dockerfile: Dockerfile
         ports:
-            - '8080:80'
+            - '80:80'
         networks:
             - internal
         container_name: proxy
@@ -31,10 +17,14 @@ services:
             dockerfile: ./docker/Dockerfile
         ports:
             - '4723:4723'
+        expose:
+            - 4723
         volumes:
             - ./flashisdead/build/:/app/flashisdead/:ro
         environment:
             - PORT=4723
+            - VIRTUAL_HOST=localhost
+            - VIRTUAL_PORT=4723
         hostname: flashisdead
         container_name: flashisdead
         networks:
@@ -45,10 +35,14 @@ services:
             dockerfile: ./docker/Dockerfile
         ports:
             - '8524:8524'
+        expose:
+            - 8524
         volumes:
             - ./tinytuba/build/:/app/tinytuba/:ro
         environment:
             - PORT=8524
+            - VIRTUAL_HOST=localhost
+            - VIRTUAL_PORT=8524
         hostname: tinytuba
         container_name: tinytuba
         networks:

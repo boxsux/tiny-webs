@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "docker": "pnpm run docker:prune && pnpm run docker:start",
-        "docker:prune": "docker-compose down --remove-orphans",
-        "docker:start": "docker-compose up -d"
+        "docker:prune": "docker compose down --remove-orphans",
+        "docker:start": "docker compose up -d"
     },
     "repository": {
         "type": "git",
